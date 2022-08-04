@@ -11,4 +11,5 @@ import lombok.NoArgsConstructor;
 @Builder
 public class RestRequestNewMessage {
     private String message;
+    private String author;
 }

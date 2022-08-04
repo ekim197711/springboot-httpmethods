@@ -15,6 +15,7 @@ public class RestResponseNewMessage {
 
     private Long id;
     private String message;
+    private String author;
     private LocalDateTime saveTime;
     private LocalDateTime responseDateTime;
 
@@ -23,6 +24,7 @@ public class RestResponseNewMessage {
                 .message(entity.message())
                 .responseDateTime(LocalDateTime.now())
                 .saveTime(entity.saveTime())
+                .author(entity.author())
                 .id(entity.id())
                 .build();
     }

@@ -1,0 +1,7 @@
+PUT http://127.0.0.1:8080/message/1
+Content-Type: application/json
+
+{
+  "message": "Apples are also good",
+  "author": "Paula"
+}

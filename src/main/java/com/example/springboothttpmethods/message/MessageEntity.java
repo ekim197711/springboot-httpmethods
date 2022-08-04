@@ -21,12 +21,15 @@ public class MessageEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String message;
+    private String author;
     private LocalDateTime saveTime;
+
     @Override
     public String toString() {
         return "MessageEntity{" +
                 "id=" + id +
                 ", message='" + message + '\'' +
+                ", author='" + author + '\'' +
                 ", saveTime=" + saveTime +
                 '}';
     }
