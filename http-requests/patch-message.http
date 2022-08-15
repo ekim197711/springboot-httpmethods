@@ -1,0 +1,7 @@
+PATCH http://127.0.0.1:8080/message/changeAuthor
+Content-Type: application/json
+
+{
+  "id": 1,
+  "updatedAuthor": "Susan"
+}

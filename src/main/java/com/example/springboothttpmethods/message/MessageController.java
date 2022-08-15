@@ -15,6 +15,12 @@ public class MessageController {
         return messageService.createNew(restRequestNewMessage);
     }
 
+    @PatchMapping("/changeAuthor")
+    public RestResponseUpdateAuthor changeAuthor(@RequestBody RestRequestUpdateAuthor restRequestUpdateAuthor) {
+        return messageService.changeAuthor(restRequestUpdateAuthor);
+    }
+
+
     @PutMapping("/{messageId}")
     public RestResponseNewMessage updateMessage(@PathVariable("messageId") Long messageId,
                                                 @RequestBody RestRequestNewMessage restRequestUpdateMessage) {

@@ -88,4 +88,19 @@ class MessageControllerTest {
         Assertions.assertEquals(MESSAGE_UPDATE, byId.get().message());
 
     }
+
+    @Test
+    void changeAuthor() {
+        RestResponseNewMessage newMessage = messageController.newMessage(RestRequestNewMessage.builder().message("something...")
+                .author("Mike")
+                .build());
+
+        final String NEW_AUTHOR = "Ole Bole";
+        RestResponseUpdateAuthor ole_bole = messageController.changeAuthor(RestRequestUpdateAuthor
+                .builder()
+                .updatedAuthor(NEW_AUTHOR)
+                .id(newMessage.getId())
+                .build());
+        Assertions.assertEquals(NEW_AUTHOR, ole_bole.getAuthor());
+    }
 }

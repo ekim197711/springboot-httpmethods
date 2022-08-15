@@ -34,4 +34,22 @@ public class MessageService {
         );
         return RestResponseNewMessage.fromEntity(saved);
     }
+
+    public RestResponseUpdateAuthor changeAuthor(RestRequestUpdateAuthor restRequestUpdateAuthor) {
+        MessageEntity entity = messageRepository.findById(restRequestUpdateAuthor.getId())
+                .orElseThrow(() -> new IllegalArgumentException("message does not exist with id: "
+                        + restRequestUpdateAuthor.getId()));
+
+        entity.author(restRequestUpdateAuthor.getUpdatedAuthor())
+                .saveTime(LocalDateTime.now());
+        MessageEntity save = messageRepository.save(entity);
+
+        return RestResponseUpdateAuthor.builder()
+                .id(save.id())
+                .author(save.author())
+                .message(save.message())
+                .saveTime(save.saveTime())
+                .build()
+                ;
+    }
 }

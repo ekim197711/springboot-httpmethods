@@ -16,6 +16,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 @Accessors(chain = true, fluent = true)
+@ToString
 public class MessageEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,14 +24,4 @@ public class MessageEntity {
     private String message;
     private String author;
     private LocalDateTime saveTime;
-
-    @Override
-    public String toString() {
-        return "MessageEntity{" +
-                "id=" + id +
-                ", message='" + message + '\'' +
-                ", author='" + author + '\'' +
-                ", saveTime=" + saveTime +
-                '}';
-    }
 }
